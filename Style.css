@@ -1,0 +1,218 @@
+/* FONTES */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=League+Spartan:wght@700&family=Open+Sans:ital,wght@0,400;0,500;1,400;1,500&family=Roboto:wght@100;300;400;500;700&display=swap');
+
+
+/* RESET NA PAGINA*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 25px;
+}
+
+main {
+  background-color: var(--bckgdcolor);
+  width: 100%;
+  height: 750px;
+}
+
+/*VAR'S*/
+
+:root{
+  --bckgdcolor: #e6e2ec;
+  --bckgdcolorheader: #DCBFFF;
+  --bckgdcolorfooter: #E5D4FF;
+  --textcolor: #553a77;
+}
+
+
+/* COMEÇA AQUI */
+
+/*HEADER*/
+
+.turnOf{
+  height: 80px;
+  margin: 0 auto;
+  background-color: var(--bckgdcolorheader);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.turnOf h1{
+  color: var(--textcolor) ;
+}
+
+/*MODAL*/
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+#modal h1 {
+  margin-bottom: 1rem;
+}
+
+#open-modal {
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+  opacity: 0.8;
+  border-radius: 10px;
+  transition: 0.4s;
+  background-color: var(--bckgdcolorheader);
+
+}
+
+#open-modal:hover{
+  opacity: 1;
+}
+
+#fade, #modal {
+  transition: .5s;
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+#fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .6);
+}
+
+#modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  z-index: 10;
+  width: 500px;
+  max-width: 90%;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+}
+
+#close-modal {
+  cursor: pointer;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.modal-body {
+  margin-bottom: 1rem;
+}
+
+#modal.hide, #fade.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#modal.hide {
+  top: 0;
+}
+
+/*SECTION*/
+.content{
+  column-count: 3;
+  display: flex;
+  height: 70%;
+}
+
+.playercontent{
+  width: 33.33%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.nVitoriaP1, .nVitoriaP2 {
+  color: green;
+}
+
+.nVitoriaP1 span, .nVitoriaP2 span {
+  color: black
+}
+
+.nDerrotaP1, .nDerrotaP2 {
+  color: red;
+}
+
+.nDerrotaP1 span, .nDerrotaP2 span {
+  color: black
+}
+
+/* GAME */
+
+.game{
+  width: 33.33%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 40px 0;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  border-right: 5px solid black;
+  border-bottom: 5px solid black;
+  font-size: 120px;
+}
+
+.box:nth-child(3n){
+  border-right: none;
+}
+.box:nth-child(6n) ~ .box{
+  border-bottom: none;
+}
+
+#gameBoard div.win {
+   background-color: #25a340;
+}
+
+
+/*FOOTER*/
+
+.reset{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bckgdcolorfooter);
+  height: 90px;
+}
+
+.btn-restart{
+  width: 250px;
+  height: 50px;
+  border-radius: 10px;
+}

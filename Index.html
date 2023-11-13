@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="IS0-8859-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <title>TI-TAC-TOE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./Script.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <div class="turnOf">
+                <h1>Vez de: <span id="spanPlayerTurn"></span> </h1>
+            </div>
+        </header>
+
+        <section class="modal">
+            <button type="button" id="open-modal">Start</button>
+            <div id="fade" class="hide"></div>
+            <div id="modal" class="hide">
+                <div class="modal-header">
+                    <h2>Coloque o nome dos jogadores</h2>
+                    <a type="btn" id="close-modal"><i class="fa-solid fa-xmark"></i></a>
+                </div>
+                <div class="modal-body">
+                    <label for="player1">X</label>
+                    <input type="text" name="" id="player1" placeholder="Nome do jogador 1">
+                    <label for="player1">O</label>
+                    <input type="text" name="" id="player2" placeholder="Nome do jogador 2">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btn-start">Start</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="playerOne playercontent">
+                <h2 class="nameP1" id="nameP1"></h2>
+                <h3 class="nVitoriaP1">V: <span id="spanVictoriP1"></span></h3>
+                <h3 class="nDerrotaP1">D: <span id="spanDefeatP1"></span></h3>
+            </div>
+            <div class="game" id="gameBoard">
+                <div class="block0 box cursor-pointer" id="box0" data-region="0.0"></div>
+                <div class="block1 box cursor-pointer" id="box1" data-region="0.1"></div>
+                <div class="block2 box cursor-pointer" id="box2" data-region="0.2"></div>
+                <div class="block3 box cursor-pointer" id="box3" data-region="1.0"></div>
+                <div class="block4 box cursor-pointer" id="box4" data-region="1.1"></div>
+                <div class="block5 box cursor-pointer" id="box5" data-region="1.2"></div>
+                <div class="block6 box cursor-pointer" id="box6" data-region="2.0"></div>
+                <div class="block7 box cursor-pointer" id="box7" data-region="2.1"></div>
+                <div class="block8 box cursor-pointer" id="box8" data-region="2.2"></div>
+            </div>
+            <div class="playerTwo playercontent">
+                <h2 class="nameP2" id="nameP2"></h2>
+                <h3 class="nVitoriaP2">V: <span id="spanVictoriP2"></span></h3>
+                <h3 class="nDerrotaP2">D: <span id="spanDefeatP2"></span></h3>
+            </div>
+        </section>
+
+        <footer>
+            <div class="reset">
+                <button type="button" class="btn-restart" id="btn-reset">Reset</button>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://kit.fontawesome.com/a45ee712a6.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
