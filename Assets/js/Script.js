@@ -103,24 +103,20 @@ function handleWin(regions) {
     })
     const playerName = document.getElementById(turnPlayer).value
     document.querySelector('h1').innerHTML = playerName + ' VENCEU! 	&#128526'
-    counter(playerName)
+    counter(turnPlayer)  
 }
 
 function counter(result) {
-    if(result == 'player1'){
+    if(result === 'player1') {
         winP1++
         defeatP2++
-            spanVictoriP1.innerText = winP1
-    spanDefeatP1.innerText = defeatP1
-    spanVictoriP2.innerText = winP2
-    spanDefeatP2.innerText = defeatP2
+        spanVictoriP1.innerText = winP1
+        spanDefeatP2.innerText = defeatP2
     } else{
         winP2++
         defeatP1++
-            spanVictoriP1.innerText = winP1
-    spanDefeatP1.innerText = defeatP1
-    spanVictoriP2.innerText = winP2
-    spanDefeatP2.innerText = defeatP2
+        spanDefeatP1.innerText = defeatP1
+        spanVictoriP2.innerText = winP2
     }
 }
 
@@ -147,6 +143,7 @@ function handleBoardClick(ev) {
         handleWin(winRegions)
     } else if (vBoard.flat().includes('')){
         turnPlayer = turnPlayer === 'player1' ? 'player2' : 'player1'
+        console.log(turnPlayer);
         updateTitle()
     } else {
         document.querySelector('h1').innerHTML = 'EMPATE!'
