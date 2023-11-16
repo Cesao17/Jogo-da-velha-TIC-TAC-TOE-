@@ -71,6 +71,7 @@ main {
 
 }
 
+
 #open-modal:hover{
   opacity: 1;
 }
@@ -119,7 +120,27 @@ main {
 
 .modal-body {
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #ccc;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+#btn-start-modal{
+  width: 250px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: var(--bckgdcolorheader);
+}
+
 
 #modal.hide, #fade.hide {
   opacity: 0;
@@ -134,11 +155,12 @@ main {
 .content{
   column-count: 3;
   display: flex;
+  justify-content: center;
   height: 70%;
 }
 
 .playercontent{
-  width: 33.33%;
+  width: 33.333%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -150,15 +172,11 @@ main {
   color: green;
 }
 
-.nVitoriaP1 span, .nVitoriaP2 span {
-  color: black
-}
-
 .nDerrotaP1, .nDerrotaP2 {
   color: red;
 }
 
-.nDerrotaP1 span, .nDerrotaP2 span {
+.nDerrotaP1 span, .nDerrotaP2 span, .nVitoriaP1 span, .nVitoriaP2 span, .nEmprates span {
   color: black
 }
 
@@ -176,6 +194,17 @@ main {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.empate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+}
+
+.nEmprates{
+  color: var(--textcolor);
 }
 
 .box {
@@ -203,16 +232,26 @@ main {
 
 /*FOOTER*/
 
+#footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bckgdcolorfooter);
+  height: 90px;
+}
+
 .reset{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--bckgdcolorfooter);
-  height: 90px;
 }
 
 .btn-restart{
   width: 250px;
   height: 50px;
   border-radius: 10px;
+}
+
+main {
+  height: 100vh;
 }

@@ -11,10 +11,14 @@ const spanVictoriP1 = document.querySelector('#spanVictoriP1');
 const spanDefeatP1 = document.querySelector('#spanDefeatP1');
 const spanVictoriP2 = document.querySelector('#spanVictoriP2');
 const spanDefeatP2 = document.querySelector('#spanDefeatP2');
+const spanEmpate = document.querySelector('#spanEmpate')
+const h1 = document.querySelector('#h1')
 
 
 let winP1 = 0;
 let defeatP1 = 0;
+
+let empate = 0;
 
 let winP2 = 0;
 let defeatP2 = 0;
@@ -56,6 +60,25 @@ function initializeGame() {
     spanDefeatP1.innerText = defeatP1
     spanVictoriP2.innerText = winP2
     spanDefeatP2.innerText = defeatP2
+    spanEmpate.innerText = empate
+}
+
+function restartGame() {
+    vBoard = [['', '' ,''],['', '', ''],['', '', '']]
+    turnPlayer = 'player1'
+    document.querySelector('h1').innerHTML = 'Vez de: <span id="spanPlayerTurn"></span>'
+    updateTitle()
+    boardRigions.forEach(function (element) {
+        element.classList.remove('win')
+        element.innerText = ''
+        element.classList.add('cursor-pointer')
+        element.removeAttribute('style')
+        element.addEventListener('click', handleBoardClick)
+    })
+    spanVictoriP1.innerText = winP1
+    spanDefeatP1.innerText = defeatP1
+    spanVictoriP2.innerText = winP2
+    spanDefeatP2.innerText = defeatP2
 }
 
 function attPlayerNames() {
@@ -90,12 +113,20 @@ function disableRegion(element) {
     element.removeEventListener('click', handleBoardClick)
 }
 
+function disableAllRegion(element) {
+     element.forEach(function (box) { 
+        box.classList.remove('cursor-pointer')
+        box.style.cursor = 'not-allowed'
+        box.disabled = true
+        box.removeEventListener('click', handleBoardClick)
+    })
+}
+
 function disableStartButton(element) {
     element.classList.remove('cursor-pointer')
     element.style.cursor = 'not-allowed'
     openModalButton.disabled = true
 }
-
 
 function handleWin(regions) {
     regions.forEach(function (region) {
@@ -112,14 +143,13 @@ function counter(result) {
         defeatP2++
         spanVictoriP1.innerText = winP1
         spanDefeatP2.innerText = defeatP2
-    } else{
+    } else {
         winP2++
         defeatP1++
         spanDefeatP1.innerText = defeatP1
         spanVictoriP2.innerText = winP2
     }
 }
-
 
 function handleBoardClick(ev) {
     const div = ev.currentTarget
@@ -141,16 +171,24 @@ function handleBoardClick(ev) {
     const winRegions = getWinRegions()
     if (winRegions.length > 0) {
         handleWin(winRegions)
+        disableAllRegion(boardRigions)
     } else if (vBoard.flat().includes('')){
         turnPlayer = turnPlayer === 'player1' ? 'player2' : 'player1'
-        console.log(turnPlayer);
         updateTitle()
     } else {
         document.querySelector('h1').innerHTML = 'EMPATE!'
+        empate++
+        spanEmpate.innerText = empate
     }
 }
 
-document.getElementById('btn-start').addEventListener('click', function () {
+document.getElementById("btn-reset").addEventListener('click', function() {
+    disableStartButton(openModalButton);
+    restartGame();
+})
+
+
+document.getElementById('btn-start-modal').addEventListener('click', function () {
     disableStartButton(openModalButton);
     initializeGame();
     toggleModal();

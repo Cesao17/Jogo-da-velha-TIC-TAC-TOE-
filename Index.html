@@ -17,7 +17,7 @@
     <main>
         <header class="header">
             <div class="turnOf">
-                <h1>TI-TAC-TOE (Jogo da velha) <span id="spanPlayerTurn"></span> </h1>
+                <h1 id="h1">TI-TAC-TOE (Jogo da velha) <span id="spanPlayerTurn"></span> </h1>
             </div>
         </header>
 
@@ -36,7 +36,7 @@
                     <input type="text" name="" id="player2" placeholder="Nome do jogador 2">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btn-start">Start</button>
+                    <button type="button" id="btn-start-modal">Start</button>
                 </div>
             </div>
         </section>
@@ -48,15 +48,15 @@
                 <h3 class="nDerrotaP1">D: <span id="spanDefeatP1"></span></h3>
             </div>
             <div class="game" id="gameBoard">
-                <div class="block0 box cursor-pointer" id="box0" data-region="0.0"></div>
-                <div class="block1 box cursor-pointer" id="box1" data-region="0.1"></div>
-                <div class="block2 box cursor-pointer" id="box2" data-region="0.2"></div>
-                <div class="block3 box cursor-pointer" id="box3" data-region="1.0"></div>
-                <div class="block4 box cursor-pointer" id="box4" data-region="1.1"></div>
-                <div class="block5 box cursor-pointer" id="box5" data-region="1.2"></div>
-                <div class="block6 box cursor-pointer" id="box6" data-region="2.0"></div>
-                <div class="block7 box cursor-pointer" id="box7" data-region="2.1"></div>
-                <div class="block8 box cursor-pointer" id="box8" data-region="2.2"></div>
+                <div class="box cursor-pointer" id="box" data-region="0.0"></div>
+                <div class="box cursor-pointer" id="box" data-region="0.1"></div>
+                <div class="box cursor-pointer" id="box" data-region="0.2"></div>
+                <div class="box cursor-pointer" id="box" data-region="1.0"></div>
+                <div class="box cursor-pointer" id="box" data-region="1.1"></div>
+                <div class="box cursor-pointer" id="box" data-region="1.2"></div>
+                <div class="box cursor-pointer" id="box" data-region="2.0"></div>
+                <div class="box cursor-pointer" id="box" data-region="2.1"></div>
+                <div class="box cursor-pointer" id="box" data-region="2.2"></div>
             </div>
             <div class="playerTwo playercontent">
                 <h2 class="nameP2" id="nameP2"></h2>
@@ -65,9 +65,12 @@
             </div>
         </section>
 
-        <footer>
+        <footer id="footer">
             <div class="reset">
                 <button type="button" class="btn-restart" id="btn-reset">Reset</button>
+            </div>
+            <div class="empate">
+                <h3 class="nEmprates">E: <span id="spanEmpate"></span></h3>
             </div>
         </footer>
     </main>
